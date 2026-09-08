@@ -1,0 +1,2400 @@
+"""A high precision floating point value represented as a string"""
+scalar BigFloat
+
+"""
+Boolean expression comparing fields on type "BigFloat"
+"""
+input BigFloatFilter {
+  eq: BigFloat
+  gt: BigFloat
+  gte: BigFloat
+  in: [BigFloat!]
+  is: FilterIs
+  lt: BigFloat
+  lte: BigFloat
+  neq: BigFloat
+}
+
+"""
+Boolean expression comparing fields on type "BigFloatList"
+"""
+input BigFloatListFilter {
+  containedBy: [BigFloat!]
+  contains: [BigFloat!]
+  eq: [BigFloat!]
+  is: FilterIs
+  overlaps: [BigFloat!]
+}
+
+"""An arbitrary size integer represented as a string"""
+scalar BigInt
+
+"""
+Boolean expression comparing fields on type "BigInt"
+"""
+input BigIntFilter {
+  eq: BigInt
+  gt: BigInt
+  gte: BigInt
+  in: [BigInt!]
+  is: FilterIs
+  lt: BigInt
+  lte: BigInt
+  neq: BigInt
+}
+
+"""
+Boolean expression comparing fields on type "BigIntList"
+"""
+input BigIntListFilter {
+  containedBy: [BigInt!]
+  contains: [BigInt!]
+  eq: [BigInt!]
+  is: FilterIs
+  overlaps: [BigInt!]
+}
+
+"""
+Boolean expression comparing fields on type "Boolean"
+"""
+input BooleanFilter {
+  eq: Boolean
+  is: FilterIs
+}
+
+"""
+Boolean expression comparing fields on type "BooleanList"
+"""
+input BooleanListFilter {
+  containedBy: [Boolean!]
+  contains: [Boolean!]
+  eq: [Boolean!]
+  is: FilterIs
+  overlaps: [Boolean!]
+}
+
+"""
+An opaque string using for tracking a position in results during pagination
+"""
+scalar Cursor
+
+"""A date without time information"""
+scalar Date
+
+"""
+Boolean expression comparing fields on type "Date"
+"""
+input DateFilter {
+  eq: Date
+  gt: Date
+  gte: Date
+  in: [Date!]
+  is: FilterIs
+  lt: Date
+  lte: Date
+  neq: Date
+}
+
+"""
+Boolean expression comparing fields on type "DateList"
+"""
+input DateListFilter {
+  containedBy: [Date!]
+  contains: [Date!]
+  eq: [Date!]
+  is: FilterIs
+  overlaps: [Date!]
+}
+
+"""A date and time"""
+scalar Datetime
+
+"""
+Boolean expression comparing fields on type "Datetime"
+"""
+input DatetimeFilter {
+  eq: Datetime
+  gt: Datetime
+  gte: Datetime
+  in: [Datetime!]
+  is: FilterIs
+  lt: Datetime
+  lte: Datetime
+  neq: Datetime
+}
+
+"""
+Boolean expression comparing fields on type "DatetimeList"
+"""
+input DatetimeListFilter {
+  containedBy: [Datetime!]
+  contains: [Datetime!]
+  eq: [Datetime!]
+  is: FilterIs
+  overlaps: [Datetime!]
+}
+
+enum FilterIs {
+  NOT_NULL
+  NULL
+}
+
+"""
+Boolean expression comparing fields on type "Float"
+"""
+input FloatFilter {
+  eq: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  is: FilterIs
+  lt: Float
+  lte: Float
+  neq: Float
+}
+
+"""
+Boolean expression comparing fields on type "FloatList"
+"""
+input FloatListFilter {
+  containedBy: [Float!]
+  contains: [Float!]
+  eq: [Float!]
+  is: FilterIs
+  overlaps: [Float!]
+}
+
+"""
+Boolean expression comparing fields on type "ID"
+"""
+input IDFilter {
+  eq: ID
+}
+
+"""
+Boolean expression comparing fields on type "Int"
+"""
+input IntFilter {
+  eq: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  is: FilterIs
+  lt: Int
+  lte: Int
+  neq: Int
+}
+
+"""
+Boolean expression comparing fields on type "IntList"
+"""
+input IntListFilter {
+  containedBy: [Int!]
+  contains: [Int!]
+  eq: [Int!]
+  is: FilterIs
+  overlaps: [Int!]
+}
+
+"""A Javascript Object Notation value serialized as a string"""
+scalar JSON
+
+"""The root type for creating and mutating data"""
+type Mutation {
+  """Deletes zero or more records from the `article` collection"""
+  deleteFromarticleCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: articleFilter
+  ): articleDeleteResponse!
+
+  """Deletes zero or more records from the `article_stats` collection"""
+  deleteFromarticle_statsCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: article_statsFilter
+  ): article_statsDeleteResponse!
+
+  """Deletes zero or more records from the `article_tag` collection"""
+  deleteFromarticle_tagCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: article_tagFilter
+  ): article_tagDeleteResponse!
+
+  """Deletes zero or more records from the `author` collection"""
+  deleteFromauthorCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: authorFilter
+  ): authorDeleteResponse!
+
+  """Deletes zero or more records from the `comment` collection"""
+  deleteFromcommentCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: commentFilter
+  ): commentDeleteResponse!
+
+  """Deletes zero or more records from the `favourite_tag` collection"""
+  deleteFromfavourite_tagCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: favourite_tagFilter
+  ): favourite_tagDeleteResponse!
+
+  """Deletes zero or more records from the `like_article` collection"""
+  deleteFromlike_articleCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: like_articleFilter
+  ): like_articleDeleteResponse!
+
+  """Deletes zero or more records from the `publisher` collection"""
+  deleteFrompublisherCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: publisherFilter
+  ): publisherDeleteResponse!
+
+  """Deletes zero or more records from the `subscribe` collection"""
+  deleteFromsubscribeCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: subscribeFilter
+  ): subscribeDeleteResponse!
+
+  """Deletes zero or more records from the `tag` collection"""
+  deleteFromtagCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: tagFilter
+  ): tagDeleteResponse!
+
+  """Deletes zero or more records from the `user` collection"""
+  deleteFromuserCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: userFilter
+  ): userDeleteResponse!
+
+  """Deletes zero or more records from the `user_public` collection"""
+  deleteFromuser_publicCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: user_publicFilter
+  ): user_publicDeleteResponse!
+
+  """Adds one or more `article` records to the collection"""
+  insertIntoarticleCollection(objects: [articleInsertInput!]!): articleInsertResponse
+
+  """Adds one or more `article_stats` records to the collection"""
+  insertIntoarticle_statsCollection(objects: [article_statsInsertInput!]!): article_statsInsertResponse
+
+  """Adds one or more `article_tag` records to the collection"""
+  insertIntoarticle_tagCollection(objects: [article_tagInsertInput!]!): article_tagInsertResponse
+
+  """Adds one or more `author` records to the collection"""
+  insertIntoauthorCollection(objects: [authorInsertInput!]!): authorInsertResponse
+
+  """Adds one or more `comment` records to the collection"""
+  insertIntocommentCollection(objects: [commentInsertInput!]!): commentInsertResponse
+
+  """Adds one or more `favourite_tag` records to the collection"""
+  insertIntofavourite_tagCollection(objects: [favourite_tagInsertInput!]!): favourite_tagInsertResponse
+
+  """Adds one or more `like_article` records to the collection"""
+  insertIntolike_articleCollection(objects: [like_articleInsertInput!]!): like_articleInsertResponse
+
+  """Adds one or more `publisher` records to the collection"""
+  insertIntopublisherCollection(objects: [publisherInsertInput!]!): publisherInsertResponse
+
+  """Adds one or more `subscribe` records to the collection"""
+  insertIntosubscribeCollection(objects: [subscribeInsertInput!]!): subscribeInsertResponse
+
+  """Adds one or more `tag` records to the collection"""
+  insertIntotagCollection(objects: [tagInsertInput!]!): tagInsertResponse
+
+  """Adds one or more `user` records to the collection"""
+  insertIntouserCollection(objects: [userInsertInput!]!): userInsertResponse
+
+  """Adds one or more `user_public` records to the collection"""
+  insertIntouser_publicCollection(objects: [user_publicInsertInput!]!): user_publicInsertResponse
+
+  """Updates zero or more records in the `article` collection"""
+  updatearticleCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: articleFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: articleUpdateInput!
+  ): articleUpdateResponse!
+
+  """Updates zero or more records in the `article_stats` collection"""
+  updatearticle_statsCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: article_statsFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: article_statsUpdateInput!
+  ): article_statsUpdateResponse!
+
+  """Updates zero or more records in the `article_tag` collection"""
+  updatearticle_tagCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: article_tagFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: article_tagUpdateInput!
+  ): article_tagUpdateResponse!
+
+  """Updates zero or more records in the `author` collection"""
+  updateauthorCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: authorFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: authorUpdateInput!
+  ): authorUpdateResponse!
+
+  """Updates zero or more records in the `comment` collection"""
+  updatecommentCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: commentFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: commentUpdateInput!
+  ): commentUpdateResponse!
+
+  """Updates zero or more records in the `favourite_tag` collection"""
+  updatefavourite_tagCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: favourite_tagFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: favourite_tagUpdateInput!
+  ): favourite_tagUpdateResponse!
+
+  """Updates zero or more records in the `like_article` collection"""
+  updatelike_articleCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: like_articleFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: like_articleUpdateInput!
+  ): like_articleUpdateResponse!
+
+  """Updates zero or more records in the `publisher` collection"""
+  updatepublisherCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: publisherFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: publisherUpdateInput!
+  ): publisherUpdateResponse!
+
+  """Updates zero or more records in the `subscribe` collection"""
+  updatesubscribeCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: subscribeFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: subscribeUpdateInput!
+  ): subscribeUpdateResponse!
+
+  """Updates zero or more records in the `tag` collection"""
+  updatetagCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: tagFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: tagUpdateInput!
+  ): tagUpdateResponse!
+
+  """Updates zero or more records in the `user` collection"""
+  updateuserCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: userFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: userUpdateInput!
+  ): userUpdateResponse!
+
+  """Updates zero or more records in the `user_public` collection"""
+  updateuser_publicCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: user_publicFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: user_publicUpdateInput!
+  ): user_publicUpdateResponse!
+}
+
+interface Node {
+  """Retrieves a record by `ID`"""
+  nodeId: ID!
+}
+
+"""Any type not handled by the type system"""
+scalar Opaque
+
+"""
+Boolean expression comparing fields on type "Opaque"
+"""
+input OpaqueFilter {
+  eq: Opaque
+  is: FilterIs
+}
+
+"""Defines a per-field sorting order"""
+enum OrderByDirection {
+  """Ascending order, nulls first"""
+  AscNullsFirst
+
+  """Ascending order, nulls last"""
+  AscNullsLast
+
+  """Descending order, nulls first"""
+  DescNullsFirst
+
+  """Descending order, nulls last"""
+  DescNullsLast
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
+"""The root type for querying data"""
+type Query {
+  """A pagable collection of type `article`"""
+  articleCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: articleFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [articleOrderBy!]
+  ): articleConnection
+
+  """A pagable collection of type `article_stats`"""
+  article_statsCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: article_statsFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [article_statsOrderBy!]
+  ): article_statsConnection
+
+  """A pagable collection of type `article_tag`"""
+  article_tagCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: article_tagFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [article_tagOrderBy!]
+  ): article_tagConnection
+
+  """A pagable collection of type `author`"""
+  authorCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: authorFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [authorOrderBy!]
+  ): authorConnection
+
+  """A pagable collection of type `comment`"""
+  commentCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: commentFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [commentOrderBy!]
+  ): commentConnection
+
+  """A pagable collection of type `favourite_tag`"""
+  favourite_tagCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: favourite_tagFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [favourite_tagOrderBy!]
+  ): favourite_tagConnection
+  get_articles_by_tag(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: articleFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [articleOrderBy!]
+    tagid: Int!
+  ): articleConnection
+  get_user_by_uid(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: user_publicFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [user_publicOrderBy!]
+    p_uid: UUID!
+  ): user_publicConnection
+
+  """A pagable collection of type `like_article`"""
+  like_articleCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: like_articleFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [like_articleOrderBy!]
+  ): like_articleConnection
+
+  """Retrieve a record by its `ID`"""
+  node(
+    """The record's `ID`"""
+    nodeId: ID!
+  ): Node
+
+  """A pagable collection of type `publisher`"""
+  publisherCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: publisherFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [publisherOrderBy!]
+  ): publisherConnection
+
+  """A pagable collection of type `subscribe`"""
+  subscribeCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: subscribeFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [subscribeOrderBy!]
+  ): subscribeConnection
+
+  """A pagable collection of type `tag`"""
+  tagCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: tagFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [tagOrderBy!]
+  ): tagConnection
+
+  """A pagable collection of type `user`"""
+  userCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: userFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [userOrderBy!]
+  ): userConnection
+
+  """A pagable collection of type `user_public`"""
+  user_publicCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: user_publicFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [user_publicOrderBy!]
+  ): user_publicConnection
+}
+
+"""
+Boolean expression comparing fields on type "String"
+"""
+input StringFilter {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  in: [String!]
+  iregex: String
+  is: FilterIs
+  like: String
+  lt: String
+  lte: String
+  neq: String
+  regex: String
+  startsWith: String
+}
+
+"""
+Boolean expression comparing fields on type "StringList"
+"""
+input StringListFilter {
+  containedBy: [String!]
+  contains: [String!]
+  eq: [String!]
+  is: FilterIs
+  overlaps: [String!]
+}
+
+"""A time without date information"""
+scalar Time
+
+"""
+Boolean expression comparing fields on type "Time"
+"""
+input TimeFilter {
+  eq: Time
+  gt: Time
+  gte: Time
+  in: [Time!]
+  is: FilterIs
+  lt: Time
+  lte: Time
+  neq: Time
+}
+
+"""
+Boolean expression comparing fields on type "TimeList"
+"""
+input TimeListFilter {
+  containedBy: [Time!]
+  contains: [Time!]
+  eq: [Time!]
+  is: FilterIs
+  overlaps: [Time!]
+}
+
+"""A universally unique identifier"""
+scalar UUID
+
+"""
+Boolean expression comparing fields on type "UUID"
+"""
+input UUIDFilter {
+  eq: UUID
+  in: [UUID!]
+  is: FilterIs
+  neq: UUID
+}
+
+"""
+Boolean expression comparing fields on type "UUIDList"
+"""
+input UUIDListFilter {
+  containedBy: [UUID!]
+  contains: [UUID!]
+  eq: [UUID!]
+  is: FilterIs
+  overlaps: [UUID!]
+}
+
+type article implements Node {
+  article_id: Int!
+  article_stats: article_stats
+  article_tagCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: article_tagFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [article_tagOrderBy!]
+  ): article_tagConnection
+  author: author
+  author_id: Int!
+  commentCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: commentFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [commentOrderBy!]
+  ): commentConnection
+  content_cn: String!
+  content_en: String!
+  header_img: String!
+  hidden: Int!
+  like_articleCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: like_articleFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [like_articleOrderBy!]
+  ): like_articleConnection
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  publisher: publisher
+  publisher_id: Int!
+  pubtime: Datetime!
+  subtitle_cn: String!
+  subtitle_en: String!
+  summary_cn: String!
+  tags_plain: [String]!
+  thumb_img: String!
+  title_cn: String!
+  title_en: String!
+  url: String!
+}
+
+type articleConnection {
+  edges: [articleEdge!]!
+  pageInfo: PageInfo!
+}
+
+type articleDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [article!]!
+}
+
+type articleEdge {
+  cursor: String!
+  node: article!
+}
+
+input articleFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [articleFilter!]
+  article_id: IntFilter
+  author_id: IntFilter
+  content_cn: StringFilter
+  content_en: StringFilter
+  header_img: StringFilter
+  hidden: IntFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: articleFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [articleFilter!]
+  publisher_id: IntFilter
+  pubtime: DatetimeFilter
+  subtitle_cn: StringFilter
+  subtitle_en: StringFilter
+  summary_cn: StringFilter
+  tags_plain: StringListFilter
+  thumb_img: StringFilter
+  title_cn: StringFilter
+  title_en: StringFilter
+  url: StringFilter
+}
+
+input articleInsertInput {
+  author_id: Int
+  content_cn: String
+  content_en: String
+  header_img: String
+  hidden: Int
+  publisher_id: Int
+  pubtime: Datetime
+  subtitle_cn: String
+  subtitle_en: String
+  summary_cn: String
+  tags_plain: [String]
+  thumb_img: String
+  title_cn: String
+  title_en: String
+  url: String
+}
+
+type articleInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [article!]!
+}
+
+input articleOrderBy {
+  article_id: OrderByDirection
+  author_id: OrderByDirection
+  content_cn: OrderByDirection
+  content_en: OrderByDirection
+  header_img: OrderByDirection
+  hidden: OrderByDirection
+  publisher_id: OrderByDirection
+  pubtime: OrderByDirection
+  subtitle_cn: OrderByDirection
+  subtitle_en: OrderByDirection
+  summary_cn: OrderByDirection
+  thumb_img: OrderByDirection
+  title_cn: OrderByDirection
+  title_en: OrderByDirection
+  url: OrderByDirection
+}
+
+input articleUpdateInput {
+  author_id: Int
+  content_cn: String
+  content_en: String
+  header_img: String
+  hidden: Int
+  publisher_id: Int
+  pubtime: Datetime
+  subtitle_cn: String
+  subtitle_en: String
+  summary_cn: String
+  tags_plain: [String]
+  thumb_img: String
+  title_cn: String
+  title_en: String
+  url: String
+}
+
+type articleUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [article!]!
+}
+
+type article_stats implements Node {
+  article: article
+  article_id: Int!
+  likes: Int!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  views: Int!
+}
+
+type article_statsConnection {
+  edges: [article_statsEdge!]!
+  pageInfo: PageInfo!
+}
+
+type article_statsDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [article_stats!]!
+}
+
+type article_statsEdge {
+  cursor: String!
+  node: article_stats!
+}
+
+input article_statsFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [article_statsFilter!]
+  article_id: IntFilter
+  likes: IntFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: article_statsFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [article_statsFilter!]
+  views: IntFilter
+}
+
+input article_statsInsertInput {
+  article_id: Int
+  likes: Int
+  views: Int
+}
+
+type article_statsInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [article_stats!]!
+}
+
+input article_statsOrderBy {
+  article_id: OrderByDirection
+  likes: OrderByDirection
+  views: OrderByDirection
+}
+
+input article_statsUpdateInput {
+  article_id: Int
+  likes: Int
+  views: Int
+}
+
+type article_statsUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [article_stats!]!
+}
+
+type article_tag implements Node {
+  article: article
+  article_id: Int!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  tag: tag
+  tag_id: Int!
+}
+
+type article_tagConnection {
+  edges: [article_tagEdge!]!
+  pageInfo: PageInfo!
+}
+
+type article_tagDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [article_tag!]!
+}
+
+type article_tagEdge {
+  cursor: String!
+  node: article_tag!
+}
+
+input article_tagFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [article_tagFilter!]
+  article_id: IntFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: article_tagFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [article_tagFilter!]
+  tag_id: IntFilter
+}
+
+input article_tagInsertInput {
+  article_id: Int
+  tag_id: Int
+}
+
+type article_tagInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [article_tag!]!
+}
+
+input article_tagOrderBy {
+  article_id: OrderByDirection
+  tag_id: OrderByDirection
+}
+
+input article_tagUpdateInput {
+  article_id: Int
+  tag_id: Int
+}
+
+type article_tagUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [article_tag!]!
+}
+
+type author implements Node {
+  articleCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: articleFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [articleOrderBy!]
+  ): articleConnection
+  author_id: Int!
+  avatar: String!
+  description: String
+  name: String!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  subscribeCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: subscribeFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [subscribeOrderBy!]
+  ): subscribeConnection
+}
+
+type authorConnection {
+  edges: [authorEdge!]!
+  pageInfo: PageInfo!
+}
+
+type authorDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [author!]!
+}
+
+type authorEdge {
+  cursor: String!
+  node: author!
+}
+
+input authorFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [authorFilter!]
+  author_id: IntFilter
+  avatar: StringFilter
+  description: StringFilter
+  name: StringFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: authorFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [authorFilter!]
+}
+
+input authorInsertInput {
+  avatar: String
+  description: String
+  name: String
+}
+
+type authorInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [author!]!
+}
+
+input authorOrderBy {
+  author_id: OrderByDirection
+  avatar: OrderByDirection
+  description: OrderByDirection
+  name: OrderByDirection
+}
+
+input authorUpdateInput {
+  avatar: String
+  description: String
+  name: String
+}
+
+type authorUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [author!]!
+}
+
+type comment implements Node {
+  article: article
+  article_id: Int!
+  comment_id: BigInt!
+  content: String!
+  created_at: Datetime!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  uid: UUID!
+  user: user
+}
+
+type commentConnection {
+  edges: [commentEdge!]!
+  pageInfo: PageInfo!
+}
+
+type commentDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [comment!]!
+}
+
+type commentEdge {
+  cursor: String!
+  node: comment!
+}
+
+input commentFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [commentFilter!]
+  article_id: IntFilter
+  comment_id: BigIntFilter
+  content: StringFilter
+  created_at: DatetimeFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: commentFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [commentFilter!]
+  uid: UUIDFilter
+}
+
+input commentInsertInput {
+  article_id: Int
+  content: String
+  created_at: Datetime
+  uid: UUID
+}
+
+type commentInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [comment!]!
+}
+
+input commentOrderBy {
+  article_id: OrderByDirection
+  comment_id: OrderByDirection
+  content: OrderByDirection
+  created_at: OrderByDirection
+  uid: OrderByDirection
+}
+
+input commentUpdateInput {
+  article_id: Int
+  content: String
+  created_at: Datetime
+  uid: UUID
+}
+
+type commentUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [comment!]!
+}
+
+type favourite_tag implements Node {
+  create_time: Datetime!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  tag: tag
+  tag_id: Int!
+  uid: UUID!
+  user: user
+}
+
+type favourite_tagConnection {
+  edges: [favourite_tagEdge!]!
+  pageInfo: PageInfo!
+}
+
+type favourite_tagDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [favourite_tag!]!
+}
+
+type favourite_tagEdge {
+  cursor: String!
+  node: favourite_tag!
+}
+
+input favourite_tagFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [favourite_tagFilter!]
+  create_time: DatetimeFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: favourite_tagFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [favourite_tagFilter!]
+  tag_id: IntFilter
+  uid: UUIDFilter
+}
+
+input favourite_tagInsertInput {
+  create_time: Datetime
+  tag_id: Int
+  uid: UUID
+}
+
+type favourite_tagInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [favourite_tag!]!
+}
+
+input favourite_tagOrderBy {
+  create_time: OrderByDirection
+  tag_id: OrderByDirection
+  uid: OrderByDirection
+}
+
+input favourite_tagUpdateInput {
+  create_time: Datetime
+  tag_id: Int
+  uid: UUID
+}
+
+type favourite_tagUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [favourite_tag!]!
+}
+
+type like_article implements Node {
+  article: article
+  article_id: Int!
+  create_time: Datetime!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  uid: UUID!
+  user: user
+}
+
+type like_articleConnection {
+  edges: [like_articleEdge!]!
+  pageInfo: PageInfo!
+}
+
+type like_articleDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [like_article!]!
+}
+
+type like_articleEdge {
+  cursor: String!
+  node: like_article!
+}
+
+input like_articleFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [like_articleFilter!]
+  article_id: IntFilter
+  create_time: DatetimeFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: like_articleFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [like_articleFilter!]
+  uid: UUIDFilter
+}
+
+input like_articleInsertInput {
+  article_id: Int
+  create_time: Datetime
+  uid: UUID
+}
+
+type like_articleInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [like_article!]!
+}
+
+input like_articleOrderBy {
+  article_id: OrderByDirection
+  create_time: OrderByDirection
+  uid: OrderByDirection
+}
+
+input like_articleUpdateInput {
+  article_id: Int
+  create_time: Datetime
+  uid: UUID
+}
+
+type like_articleUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [like_article!]!
+}
+
+type publisher implements Node {
+  articleCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: articleFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [articleOrderBy!]
+  ): articleConnection
+  icon: String!
+  name: String!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  publisher_id: Int!
+  updatetime: Datetime!
+}
+
+type publisherConnection {
+  edges: [publisherEdge!]!
+  pageInfo: PageInfo!
+}
+
+type publisherDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [publisher!]!
+}
+
+type publisherEdge {
+  cursor: String!
+  node: publisher!
+}
+
+input publisherFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [publisherFilter!]
+  icon: StringFilter
+  name: StringFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: publisherFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [publisherFilter!]
+  publisher_id: IntFilter
+  updatetime: DatetimeFilter
+}
+
+input publisherInsertInput {
+  icon: String
+  name: String
+  updatetime: Datetime
+}
+
+type publisherInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [publisher!]!
+}
+
+input publisherOrderBy {
+  icon: OrderByDirection
+  name: OrderByDirection
+  publisher_id: OrderByDirection
+  updatetime: OrderByDirection
+}
+
+input publisherUpdateInput {
+  icon: String
+  name: String
+  updatetime: Datetime
+}
+
+type publisherUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [publisher!]!
+}
+
+type subscribe implements Node {
+  author: author
+  author_id: Int!
+  create_time: Datetime!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  uid: UUID!
+  user: user
+}
+
+type subscribeConnection {
+  edges: [subscribeEdge!]!
+  pageInfo: PageInfo!
+}
+
+type subscribeDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [subscribe!]!
+}
+
+type subscribeEdge {
+  cursor: String!
+  node: subscribe!
+}
+
+input subscribeFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [subscribeFilter!]
+  author_id: IntFilter
+  create_time: DatetimeFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: subscribeFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [subscribeFilter!]
+  uid: UUIDFilter
+}
+
+input subscribeInsertInput {
+  author_id: Int
+  create_time: Datetime
+  uid: UUID
+}
+
+type subscribeInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [subscribe!]!
+}
+
+input subscribeOrderBy {
+  author_id: OrderByDirection
+  create_time: OrderByDirection
+  uid: OrderByDirection
+}
+
+input subscribeUpdateInput {
+  author_id: Int
+  create_time: Datetime
+  uid: UUID
+}
+
+type subscribeUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [subscribe!]!
+}
+
+type tag implements Node {
+  article_tagCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: article_tagFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [article_tagOrderBy!]
+  ): article_tagConnection
+  favourite_tagCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: favourite_tagFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [favourite_tagOrderBy!]
+  ): favourite_tagConnection
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  tag_id: Int!
+  value_cn: String!
+  value_en: String!
+}
+
+type tagConnection {
+  edges: [tagEdge!]!
+  pageInfo: PageInfo!
+}
+
+type tagDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [tag!]!
+}
+
+type tagEdge {
+  cursor: String!
+  node: tag!
+}
+
+input tagFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [tagFilter!]
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: tagFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [tagFilter!]
+  tag_id: IntFilter
+  value_cn: StringFilter
+  value_en: StringFilter
+}
+
+input tagInsertInput {
+  value_cn: String
+  value_en: String
+}
+
+type tagInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [tag!]!
+}
+
+input tagOrderBy {
+  tag_id: OrderByDirection
+  value_cn: OrderByDirection
+  value_en: OrderByDirection
+}
+
+input tagUpdateInput {
+  value_cn: String
+  value_en: String
+}
+
+type tagUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [tag!]!
+}
+
+type user implements Node {
+  avatar: String
+  bio: String!
+  commentCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: commentFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [commentOrderBy!]
+  ): commentConnection
+  favourite_tagCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: favourite_tagFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [favourite_tagOrderBy!]
+  ): favourite_tagConnection
+  like_articleCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: like_articleFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [like_articleOrderBy!]
+  ): like_articleConnection
+  name: String!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  qq_sid: String!
+  subscribeCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: subscribeFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """
+    Skip n values from the after cursor. Alternative to cursor pagination. Backward pagination not supported.
+    """
+    offset: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [subscribeOrderBy!]
+  ): subscribeConnection
+  uid: UUID!
+}
+
+type userConnection {
+  edges: [userEdge!]!
+  pageInfo: PageInfo!
+}
+
+type userDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [user!]!
+}
+
+type userEdge {
+  cursor: String!
+  node: user!
+}
+
+input userFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [userFilter!]
+  avatar: StringFilter
+  bio: StringFilter
+  name: StringFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: userFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [userFilter!]
+  qq_sid: StringFilter
+  uid: UUIDFilter
+}
+
+input userInsertInput {
+  avatar: String
+  bio: String
+  name: String
+  qq_sid: String
+  uid: UUID
+}
+
+type userInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [user!]!
+}
+
+input userOrderBy {
+  avatar: OrderByDirection
+  bio: OrderByDirection
+  name: OrderByDirection
+  qq_sid: OrderByDirection
+  uid: OrderByDirection
+}
+
+input userUpdateInput {
+  avatar: String
+  bio: String
+  name: String
+  qq_sid: String
+  uid: UUID
+}
+
+type userUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [user!]!
+}
+
+type user_public implements Node {
+  avatar: String
+  bio: String
+  name: String
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+  uid: UUID
+}
+
+type user_publicConnection {
+  edges: [user_publicEdge!]!
+  pageInfo: PageInfo!
+}
+
+type user_publicDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [user_public!]!
+}
+
+type user_publicEdge {
+  cursor: String!
+  node: user_public!
+}
+
+input user_publicFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [user_publicFilter!]
+  avatar: StringFilter
+  bio: StringFilter
+  name: StringFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: user_publicFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [user_publicFilter!]
+  uid: UUIDFilter
+}
+
+input user_publicInsertInput {
+  avatar: String
+  bio: String
+  name: String
+  uid: UUID
+}
+
+type user_publicInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [user_public!]!
+}
+
+input user_publicOrderBy {
+  avatar: OrderByDirection
+  bio: OrderByDirection
+  name: OrderByDirection
+  uid: OrderByDirection
+}
+
+input user_publicUpdateInput {
+  avatar: String
+  bio: String
+  name: String
+  uid: UUID
+}
+
+type user_publicUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [user_public!]!
+}

@@ -1,0 +1,13 @@
+mutation InsertIntosubscribeCollection($uid: UUID!, $authorId: Int) {
+    insertIntosubscribeCollection(
+        objects: { uid: $uid, author_id: $authorId }
+    ) {
+        affectedCount
+    }
+}
+
+mutation DeleteFromsubscribeCollection($authorId: Int) {
+    deleteFromsubscribeCollection(filter: { author_id: { eq: $authorId } }) {
+        affectedCount
+    }
+}

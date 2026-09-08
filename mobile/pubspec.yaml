@@ -1,0 +1,41 @@
+name: tech_pulse
+description: "TechPulse (software engineering course homework)"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.7.3
+  animations: ^2.1.1
+  glow_container: ^1.0.1
+  expandable_text: ^2.3.0
+  card_swiper: ^3.0.1
+  supabase_flutter: ^2.12.0
+  flutter_dotenv: ^6.0.0
+  graphql_flutter: ^5.2.1
+  graphql: ^5.2.3
+  flutter_hooks: ^0.21.3+1
+  cached_network_image: ^3.4.1
+  pinput: ^6.0.1
+  markdown_widget: ^2.3.2+8
+  markdown: ^7.3.0
+  shared_preferences: ^2.5.3
+  comment_tree: ^0.3.0
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  test: ^1.25.15
+  build_runner:
+  graphql_codegen: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env

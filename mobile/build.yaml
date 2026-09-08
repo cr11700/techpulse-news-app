@@ -1,0 +1,27 @@
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          clients:
+            - graphql
+            - graphql_flutter
+          scalars:
+            Time:
+              type: String
+            Datetime:
+              type: String
+            Date:
+              type: String
+            UUID:
+              type: String
+            Cursor:
+              type: String
+            Opaque:
+              type: String
+            BigFloat:
+              type: double
+            BigInt:
+              type: String
+            JSON:
+              type: Map<String, dynamic>

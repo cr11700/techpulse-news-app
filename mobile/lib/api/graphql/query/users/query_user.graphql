@@ -1,0 +1,13 @@
+query GetUserByUid($uid: UUID!) {
+    get_user_by_uid(p_uid: $uid, first: 1) {
+        edges {
+            node {
+                nodeId
+                uid
+                name
+                avatar
+                bio
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo DOMAIN=$DOMAIN >> .env
+echo SUPABASE_API_HOST=$SUPABASE_API_HOST >> .env
+echo SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY >> .env
+echo REST_BASE_URL=$REST_BASE_URL >> .env

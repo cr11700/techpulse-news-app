@@ -1,0 +1,93 @@
+image: gitlab-flutter:local-android-web
+
+.default_scripts: &default_scripts
+  - chmod +x ./scripts/setup_env.sh
+  - ./scripts/setup_env.sh
+
+stages:
+  - test
+  - build
+  - deploy
+
+Run Flutter Analyzer (Linting):
+  stage: test
+  script:
+    - *default_scripts
+    - flutter analyze
+
+Run Flutter Test:
+  stage: test
+  script:
+    - *default_scripts
+    - flutter test
+
+Build Web:
+  stage: build
+  script:
+    - *default_scripts
+    - flutter build web
+    # 压缩 build/web 整个目录
+    - cd build/web && zip -r ../../web.zip . && cd -
+  artifacts:
+    paths:
+      - web.zip
+    expire_in: 7 days
+
+Build Android:
+  stage: build
+  rules:
+    - if: '$CI_COMMIT_TAG'
+      when: on_success
+  script:
+    - *default_scripts
+    - flutter build apk
+    - mkdir -p dist
+    - cp build/app/outputs/flutter-apk/app-release.apk .
+  artifacts:
+    paths:
+      - app-release.apk
+    expire_in: 7 days
+  environment: production
+
+Deploy Develop:
+  image: docker:29
+  stage: deploy
+  dependencies:
+    - Build Web
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+    DOCKER_TLS_CERTDIR: ""
+    CI_REGISTRY_IMAGE: reg.pc.ncepu.lxy0423.top/lxy/techpulse-frontend
+  script:
+    - *default_scripts
+    - |
+      docker buildx build \
+        -t $CI_REGISTRY_IMAGE:dev \
+        -t $CI_REGISTRY_IMAGE:dev-${CI_COMMIT_SHORT_SHA} \
+        --push .
+  environment: develop
+  only:
+    refs:
+      - main
+      - dev
+
+Deploy Production:
+  image: docker:29
+  stage: deploy
+  dependencies:
+    - Build Web
+  rules:
+    - if: '$CI_COMMIT_TAG'
+      when: on_success
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+    DOCKER_TLS_CERTDIR: ""
+    CI_REGISTRY_IMAGE: reg.pc.ncepu.lxy0423.top/lxy/techpulse-frontend
+  script:
+    - *default_scripts
+    - |
+      docker buildx build \
+        -t $CI_REGISTRY_IMAGE:latest \
+        -t $CI_REGISTRY_IMAGE:${CI_COMMIT_TAG} \
+        --push .
+  environment: production

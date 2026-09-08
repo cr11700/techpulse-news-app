@@ -1,0 +1,120 @@
+query HomePageArticleCollection($after: Cursor) {
+    articleCollection(after: $after, orderBy: {
+      pubtime: DescNullsLast
+    }) {
+        edges {
+            node {
+                nodeId
+                title_cn
+                url
+                pubtime
+              	header_img
+                thumb_img
+                author {
+                    nodeId
+                    name
+                    avatar
+                }
+              	publisher {
+                  name
+                }
+                article_stats {
+                    views
+                    likes
+                }
+            }
+        }
+        pageInfo {
+            hasNextPage
+            endCursor
+        }
+    }
+}
+
+query HomePageArticleByTag($tag: Int, $after: Cursor) {
+    get_articles_by_tag(tagid: $tag, after: $after, orderBy: { pubtime: DescNullsLast }) {
+        edges {
+            node {
+                nodeId
+                title_cn
+                url
+                pubtime
+              	header_img
+                thumb_img
+                author {
+                    nodeId
+                    name
+                    avatar
+                }
+              	publisher {
+                  name
+                }
+                article_stats {
+                    views
+                    likes
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}
+
+query HomePageTags {
+    tagCollection {
+        edges {
+            node {
+                nodeId
+                tag_id
+                value_cn
+                value_en
+            }
+        }
+    }
+}
+
+query PublisherCollection {
+    publisherCollection {
+        edges {
+            node {
+                nodeId
+                publisher_id
+                name
+                icon
+            }
+        }
+    }
+}
+
+query HomePageArticleByPublisher($publisherId: Int, $after: Cursor) {
+    articleCollection(filter: { publisher_id: { eq: $publisherId } }, after: $after, orderBy: { pubtime: DescNullsLast }) {
+        edges {
+            node {
+                nodeId
+                title_cn
+                url
+                pubtime
+              	header_img
+                thumb_img
+                author {
+                    nodeId
+                    name
+                    avatar
+                }
+              	publisher {
+                  name
+                }
+                article_stats {
+                    views
+                    likes
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

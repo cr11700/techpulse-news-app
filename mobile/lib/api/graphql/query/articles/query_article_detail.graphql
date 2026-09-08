@@ -1,0 +1,65 @@
+query ArticleDetailNode($nodeId: ID!) {
+    node(nodeId: $nodeId) {
+        nodeId
+        ... on article {
+            nodeId
+            article_id
+            title_en
+            subtitle_en
+            content_en
+            title_cn
+            subtitle_cn
+            content_cn
+            summary_cn
+            url
+            pubtime
+            header_img
+            thumb_img
+            tags_plain
+            author {
+                nodeId
+                author_id
+                name
+                avatar
+                description
+                subscribeCollection {
+                    pageInfo {
+                        endCursor
+                    }
+                }
+            }
+            publisher {
+                nodeId
+                publisher_id
+                name
+                icon
+            }
+            article_tagCollection {
+                edges {
+                    node {
+                        tag {
+                            nodeId
+                            tag_id
+                            value_cn
+                            value_en
+                            favourite_tagCollection {
+                                pageInfo {
+                                    endCursor
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            like_articleCollection {
+                pageInfo {
+                    startCursor
+                }
+            }
+            article_stats {
+                views
+                likes
+            }
+        }
+    }
+}

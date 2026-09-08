@@ -1,0 +1,35 @@
+services:
+  # 研发环境
+  techpulse-frontend-dev:
+    image: reg.pc.ncepu.lxy0423.top/lxy/techpulse-frontend:dev
+    container_name: techpulse-frontend-dev
+    restart: unless-stopped
+    networks:
+      - traefik-net
+    labels:
+      - "traefik.enable=true"
+      - traefik.constraint-label-stack=mydockercompose
+      - "traefik.http.routers.techpulse-frontend-dev.rule=Host(`dev.techpulse.${DOMAIN}`)"
+      - "traefik.http.routers.techpulse-frontend-dev.entrypoints=websecure"
+      - "traefik.http.routers.techpulse-frontend-dev.tls.certresolver=myresolver"
+      - "traefik.http.services.techpulse-frontend-dev-service.loadbalancer.server.port=80"
+
+  # 生产环境
+  techpulse-frontend-release:
+    image: reg.pc.ncepu.lxy0423.top/lxy/techpulse-frontend:latest
+    container_name: techpulse-frontend-release
+    restart: unless-stopped
+    networks:
+      - traefik-net
+    labels:
+      - "traefik.enable=true"
+      - traefik.constraint-label-stack=mydockercompose
+      - "traefik.http.routers.techpulse-frontend-release.rule=Host(`techpulse.${DOMAIN}`)"
+      - "traefik.http.routers.techpulse-frontend-release.entrypoints=websecure"
+      - "traefik.http.routers.techpulse-frontend-release.tls.certresolver=myresolver"
+      - "traefik.http.routers.techpulse-frontend-release.service=techpulse-frontend-release-service"
+      - "traefik.http.services.techpulse-frontend-release-service.loadbalancer.server.port=80"
+
+networks:
+  traefik-net:
+    external: true

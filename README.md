@@ -22,6 +22,7 @@ The project depends on Supabase, Redis, and an LLM API. Do not commit real crede
 mobile/
   cp .env.example .env
   flutter pub get
+  dart run build_runner build --delete-conflicting-outputs
   flutter run
 
 server/

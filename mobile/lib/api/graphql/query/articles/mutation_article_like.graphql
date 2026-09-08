@@ -1,0 +1,14 @@
+mutation InsertIntolike_articleCollection($uid: UUID!, $articleId: Int) {
+    insertIntolike_articleCollection(
+        objects: { uid: $uid, article_id: $articleId }
+    ) {
+        affectedCount
+    }
+}
+
+mutation DeleteFromlike_articleCollection($articleId: Int) {
+    deleteFromlike_articleCollection(filter: { article_id: { eq: $articleId } }) {
+        affectedCount
+    }
+}
+
